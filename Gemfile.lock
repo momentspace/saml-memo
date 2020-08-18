@@ -50,6 +50,9 @@ GEM
     coffee-script-source (1.12.2)
     commonjs (0.2.7)
     concurrent-ruby (1.0.4)
+    debase (0.2.4.1)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.9)
     debug_inspector (0.0.2)
     dotenv (2.1.2)
     dotenv-rails (2.1.2)
@@ -125,6 +128,8 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     ref (2.0.0)
+    ruby-debug-ide (0.7.2)
+      rake (>= 0.8.1)
     ruby-saml (1.4.1)
       nokogiri (>= 1.5.10)
     sass (3.4.23)
@@ -180,6 +185,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  debase
   dotenv-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -187,6 +193,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.1)
+  ruby-debug-ide
   ruby-saml
   sass-rails (~> 5.0)
   spring
@@ -200,4 +207,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.13.7
+   1.14.6

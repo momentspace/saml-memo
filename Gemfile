@@ -11,6 +11,8 @@ gem 'ruby-saml'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem "ruby-debug-ide"
+gem "debase"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'

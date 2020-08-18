@@ -1,0 +1,30 @@
+version: "3"
+services:
+  app:
+    image: ruby:2.3.3
+    volumes:
+      - ./:/app
+    working_dir: /app
+    tty: true
+    environment:
+      - BUNDLE_APP_CONFIG=/app/.bundle
+      - ISSUER=https://hostname.local/saml/acs
+      - IDP_ENTITY_ID=https://sts.windows.net/{tenant_id}/
+      - IDP_SSO_URL=https://login.microsoftonline.com/{tenant_id}/saml2
+      - IDP_SLO_URL=https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
+      - NAME_ID_FORMAT=urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+    ports:
+      - 1234:1234
+      - 3500:3000
+    command: "bundle exec rdebug-ide --host 0.0.0.0 --port 1234 -- bin/rails s -p 3000 -b 0.0.0.0"
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '12280:80'
+      - '12443:443'
+    restart: always
+    environment:
+      DOMAINS: 'hostname.local -> http://app:3000'
+      STAGE: 'local'
+      # STAGE: 'production' # Don't use production until staging works
+      # FORCE_RENEW: 'true'

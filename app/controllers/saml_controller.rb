@@ -33,7 +33,7 @@ class SamlController < ApplicationController
       end
 
       # render :action => :index
-      redirect_to '/memos'
+      redirect_to 'https://hostname.local:12443/memos'
     else
       logger.info "Response Invalid. Errors: #{response.errors}"
       @errors = response.errors
@@ -129,6 +129,6 @@ class SamlController < ApplicationController
   end
 
   def get_url_base
-  "#{request.protocol}#{request.host_with_port}"
+  "#{request.protocol}#{request.host_with_port}:12443"
   end
 end
